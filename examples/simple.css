@@ -30,7 +30,7 @@
   margin-right: 8px;
 }
 .rc-collapse-content {
-  height: 0;
+  display: none;
   overflow: hidden;
   color: #666666;
   padding: 0 16px;
@@ -39,6 +39,9 @@
 .rc-collapse-content > .rc-collapse-content-box {
   margin-top: 16px;
   margin-bottom: 16px;
+}
+.rc-collapse-content-active {
+  display: block;
 }
 .rc-collapse-item:last-child > .rc-collapse-content {
   border-radius: 0 0 3px 3px;
@@ -50,9 +53,6 @@
           transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   -webkit-transition-property: height;
           transition-property: height;
-}
-.rc-collapse-content-active {
-  height: auto;
 }
 .rc-collapse > .rc-collapse-item-active > .rc-collapse-header .arrow {
   border-left: 3px solid transparent;
