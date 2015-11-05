@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <title>simple.js - example - rc-collapse@1.4.1</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -42,153 +43,170 @@
       hyphens: none;
       color: #E5E5C2;
     }
+  </style>
+  <style>
+/*
 
-    /*
 Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
 */
 
-    .hljs {
-      display: block;
-      overflow-x: auto;
-      padding: 0.5em;
-      background: #23241f;
-      -webkit-text-size-adjust: none;
-    }
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+  -webkit-text-size-adjust: none;
+}
 
-    .hljs,
-    .hljs-tag,
-    .css .hljs-rules,
-    .css .hljs-value,
-    .css .hljs-function
-    .hljs-preprocessor,
-    .hljs-pragma {
-      color: #f8f8f2;
-    }
+.hljs,
+.hljs-tag,
+.css .hljs-rule,
+.css .hljs-value,
+.aspectj .hljs-function,
+.css .hljs-function
+.hljs-preprocessor,
+.hljs-pragma {
+  color: #f8f8f2;
+}
 
-    .hljs-strongemphasis,
-    .hljs-strong,
-    .hljs-emphasis {
-      color: #a8a8a2;
-    }
+.hljs-strongemphasis,
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
 
-    .hljs-bullet,
-    .hljs-blockquote,
-    .hljs-horizontal_rule,
-    .hljs-number,
-    .hljs-regexp,
-    .alias .hljs-keyword,
-    .hljs-literal,
-    .hljs-hexcolor {
-      color: #ae81ff;
-    }
+.hljs-bullet,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.hljs-number,
+.hljs-regexp,
+.alias .hljs-keyword,
+.hljs-literal,
+.hljs-hexcolor {
+  color: #ae81ff;
+}
 
-    .hljs-tag .hljs-value,
-    .hljs-code,
-    .hljs-title,
-    .css .hljs-class,
-    .hljs-class .hljs-title:last-child {
-      color: #a6e22e;
-    }
+.hljs-code,
+.hljs-title,
+.css .hljs-class,
+.hljs-class .hljs-title:last-child {
+  color: #a6e22e;
+  /*color: #e6db74;*/
+}
 
-    .hljs-link_url {
-      font-size: 80%;
-    }
+.hljs-link_url {
+  font-size: 80%;
+}
 
-    .hljs-strong,
-    .hljs-strongemphasis {
-      font-weight: bold;
-    }
+.hljs-strong,
+.hljs-strongemphasis {
+  font-weight: bold;
+}
 
-    .hljs-emphasis,
-    .hljs-strongemphasis,
-    .hljs-class .hljs-title:last-child {
-      font-style: italic;
-    }
+.hljs-emphasis,
+.hljs-strongemphasis,
+.hljs-class .hljs-title:last-child,
+.hljs-typename {
+  font-style: italic;
+}
 
-    .hljs-keyword,
-    .hljs-function,
-    .hljs-change,
-    .hljs-winutils,
-    .hljs-flow,
-    .nginx .hljs-title,
-    .tex .hljs-special,
-    .hljs-header,
-    .hljs-attribute,
-    .hljs-symbol,
-    .hljs-symbol .hljs-string,
-    .hljs-tag .hljs-title,
-    .hljs-value,
-    .alias .hljs-keyword:first-child,
-    .css .hljs-tag,
-    .css .unit,
-    .css .hljs-important {
-      color: #f92672;
-    }
+.hljs-keyword,
+.ruby .hljs-class .hljs-keyword:first-child,
+.ruby .hljs-function .hljs-keyword,
+.hljs-function,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.nginx .hljs-title,
+.tex .hljs-special,
+.hljs-header,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-tag .hljs-title,
+.hljs-value,
+.alias .hljs-keyword:first-child,
+.css .hljs-tag,
+.css .unit,
+.css .hljs-important {
+  color: #f92672;
+}
 
-    .hljs-function .hljs-keyword,
-    .hljs-class .hljs-keyword:first-child,
-    .hljs-constant,
-    .css .hljs-attribute {
-      color: #66d9ef;
-    }
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child,
+.hljs-aspect .hljs-keyword:first-child,
+.hljs-constant,
+.hljs-typename,
+.hljs-name,
+.css .hljs-attribute {
+  color: #66d9ef;
+}
 
-    .hljs-variable,
-    .hljs-params,
-    .hljs-class .hljs-title {
-      color: #f8f8f2;
-    }
+.hljs-variable,
+.hljs-params,
+.hljs-class .hljs-title,
+.hljs-aspect .hljs-title {
+  color: #f8f8f2;
+}
 
-    .hljs-string,
-    .css .hljs-id,
-    .hljs-subst,
-    .hljs-type,
-    .ruby .hljs-class .hljs-parent,
-    .hljs-built_in,
-    .django .hljs-template_tag,
-    .django .hljs-variable,
-    .smalltalk .hljs-class,
-    .django .hljs-filter .hljs-argument,
-    .smalltalk .hljs-localvars,
-    .smalltalk .hljs-array,
-    .hljs-attr_selector,
-    .hljs-pseudo,
-    .hljs-addition,
-    .hljs-stream,
-    .hljs-envvar,
-    .apache .hljs-tag,
-    .apache .hljs-cbracket,
-    .tex .hljs-command,
-    .hljs-prompt,
-    .hljs-link_label,
-    .hljs-link_url {
-      color: #e6db74;
-    }
+.hljs-tag .hljs-value,
+.hljs-string,
+.css .hljs-id,
+.hljs-subst,
+.hljs-type,
+.ruby .hljs-class .hljs-parent,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.hljs-link_label,
+.hljs-link_url {
+  color: #e6db74;
+}
 
-    .hljs-comment,
-    .hljs-javadoc,
-    .hljs-annotation,
-    .hljs-decorator,
-    .hljs-template_comment,
-    .hljs-pi,
-    .hljs-doctype,
-    .hljs-deletion,
-    .hljs-shebang,
-    .apache .hljs-sqbracket,
-    .tex .hljs-formula {
-      color: #75715e;
-    }
+.hljs-comment,
+.hljs-annotation,
+.hljs-decorator,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: #75715e;
+}
 
-    .coffeescript .javascript,
-    .javascript .xml,
-    .tex .hljs-formula,
-    .xml .javascript,
-    .xml .vbscript,
-    .xml .css,
-    .xml .hljs-cdata,
-    .xml .php,
-    .php .xml {
-      opacity: 0.5;
-    }
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata,
+.xml .php,
+.php .xml {
+  opacity: 0.5;
+}
+/***********/
+.hljs-attribute{
+  color: #a6e22e;
+}
+/***** node keyword ******/
+.hljs-built_in{
+  color: #3396dc;
+  font-weight: bold;
+}
   </style>
   <style>
     .container {
@@ -239,15 +257,14 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
 <div class="container">
   <div class="header">
-    <h1>rc-collapse@1.4.0</h1>
+    <h1>rc-collapse@1.4.1</h1>
 
     <p>rc-collapse ui component for react</p>
   </div>
   <div class="example" id="__react-content"></div>
   <script src="common.js?nowrap"></script>
   <script src="simple.js?nowrap"></script>
-  <div class="highlight">
-    <pre><code><span class="hljs-string">'use strict'</span>;
+  <div class="highlight"><pre><code language="js"><span class="hljs-pi">'use strict'</span>;
 
 <span class="hljs-built_in">require</span>(<span class="hljs-string">'rc-collapse/assets/index.css'</span>);
 <span class="hljs-built_in">require</span>(<span class="hljs-string">'string.prototype.repeat'</span>);
@@ -256,21 +273,21 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
 <span class="hljs-keyword">var</span> ReactDOM = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-dom'</span>);
 
-<span class="hljs-keyword">var</span> text = `
-  A dog <span class="hljs-keyword">is</span> a type <span class="hljs-keyword">of</span> domesticated animal.
-  Known <span class="hljs-keyword">for</span> its loyalty <span class="hljs-keyword">and</span> faithfulness,
-  <span class="hljs-literal">it</span> can be found as a welcome guest <span class="hljs-keyword">in</span> many households across the world.
-`;
+<span class="hljs-keyword">var</span> text = <span class="hljs-string">`
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`</span>;
 
-<span class="hljs-keyword">function</span> random() {
-  <span class="hljs-keyword">return</span> parseInt(Math.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">random</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>;
 }
 
 <span class="hljs-keyword">var</span> Test = React.createClass({
   getInitialState() {
     <span class="hljs-keyword">return</span> {
-      <span class="hljs-attribute">time</span>: random(),
-      <span class="hljs-attribute">accordion</span>: <span class="hljs-literal">false</span>
+      time: random(),
+      accordion: <span class="hljs-literal">false</span>
     };
   },
 
@@ -279,57 +296,58 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, len = <span class="hljs-number">3</span>; i &lt; len; i++) {
       <span class="hljs-keyword">var</span> key = i + <span class="hljs-number">1</span>;
       items.push(
-        &lt;Panel header={`This <span class="hljs-keyword">is</span> panel header ${key}`} key={key}&gt;
-          &lt;p&gt;{text.repeat(<span class="hljs-keyword">this</span>.state.time)}&lt;/p&gt;
-        &lt;/Panel&gt;
-      );
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">{`This</span> <span class="hljs-attribute">is</span> <span class="hljs-attribute">panel</span> <span class="hljs-attribute">header</span> ${<span class="hljs-attribute">key</span>}`} <span class="hljs-attribute">key</span>=<span class="hljs-value">{key}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{text.repeat(this.state.time)}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
+      )</span>;
     }
     items.push(
-      &lt;Panel header={`This <span class="hljs-keyword">is</span> panel header <span class="hljs-number">4</span>`} key=<span class="hljs-string">"4"</span>&gt;
-        &lt;Collapse defaultActiveKey=<span class="hljs-string">"1"</span>&gt;
-          &lt;Panel header={`This <span class="hljs-keyword">is</span> panel nest panel`} key=<span class="hljs-string">"1"</span>&gt;
-            &lt;p&gt;{text}&lt;/p&gt;
-          &lt;/Panel&gt;
-        &lt;/Collapse&gt;
-      &lt;/Panel&gt;
-    );
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">{`This</span> <span class="hljs-attribute">is</span> <span class="hljs-attribute">panel</span> <span class="hljs-attribute">header</span> <span class="hljs-attribute">4</span>`} <span class="hljs-attribute">key</span>=<span class="hljs-value">"4"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">Collapse</span> <span class="hljs-attribute">defaultActiveKey</span>=<span class="hljs-value">"1"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">{`This</span> <span class="hljs-attribute">is</span> <span class="hljs-attribute">panel</span> <span class="hljs-attribute">nest</span> <span class="hljs-attribute">panel</span>`} <span class="hljs-attribute">key</span>=<span class="hljs-value">"1"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{text}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">Collapse</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
+    )</span>;
 
     <span class="hljs-keyword">return</span> items;
   },
 
   toggle() {
-    <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attribute">accordion</span>: !<span class="hljs-keyword">this</span>.state.accordion });
+    <span class="hljs-keyword">this</span>.setState({ accordion: !<span class="hljs-keyword">this</span>.state.accordion });
   },
 
   reRender() {
-    <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attribute">time</span>: random() });
+    <span class="hljs-keyword">this</span>.setState({ time: random() });
   },
 
   setActivityKey() {
-    <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attribute">activeKey</span>: [<span class="hljs-string">'2'</span>] });
+    <span class="hljs-keyword">this</span>.setState({ activeKey: [<span class="hljs-string">'2'</span>] });
   },
 
   render() {
     <span class="hljs-keyword">var</span> accordion = <span class="hljs-keyword">this</span>.state.accordion;
     <span class="hljs-keyword">var</span> btn = accordion ? <span class="hljs-string">'accordion'</span> : <span class="hljs-string">'collapse'</span>;
     <span class="hljs-keyword">var</span> activeKey = <span class="hljs-keyword">this</span>.state.activeKey;
-    <span class="hljs-keyword">return</span> &lt;div style={{<span class="hljs-attribute">margin</span>: <span class="hljs-number">20</span>, <span class="hljs-attribute">width</span>: <span class="hljs-number">400</span>}}&gt;
-      &lt;button onClick={<span class="hljs-keyword">this</span>.reRender}&gt;reRender&lt;/button&gt;
-      &lt;button onClick={<span class="hljs-keyword">this</span>.toggle}&gt;{btn}&lt;<span class="hljs-pi">/button&gt;&lt;br/</span>&gt;&lt;br/&gt;
-      &lt;button onClick={<span class="hljs-keyword">this</span>.setActivityKey}&gt;active header <span class="hljs-number">2</span>&lt;<span class="hljs-pi">/button&gt;&lt;br/</span>&gt;&lt;br/&gt;
-      &lt;Collapse accordion={accordion} activeKey={activeKey} defaultActiveKey={[<span class="hljs-string">'4'</span>]}&gt;{<span class="hljs-keyword">this</span>.getItems()}&lt;/Collapse&gt;
-    &lt;/div&gt;;
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{margin:</span> <span class="hljs-attribute">20</span>, <span class="hljs-attribute">width:</span> <span class="hljs-attribute">400</span>}}&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.reRender}</span>&gt;</span>reRender<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.toggle}</span>&gt;</span>{btn}<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.setActivityKey}</span>&gt;</span>active header 2<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">Collapse</span> <span class="hljs-attribute">accordion</span>=<span class="hljs-value">{accordion}</span> <span class="hljs-attribute">activeKey</span>=<span class="hljs-value">{activeKey}</span> <span class="hljs-attribute">defaultActiveKey</span>=<span class="hljs-value">{['4']}</span>&gt;</span>{this.getItems()}<span class="hljs-tag">&lt;/<span class="hljs-title">Collapse</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>;</span>
   }
 });
 
-ReactDOM.render(&lt;Test/&gt;, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'__react-content'</span>));
-</code></pre>
-  </div>
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Test</span>/&gt;</span>, document.getElementById('__react-content'));
+</span></code></pre></div>
 </div>
-<a href="http://github.com/react-component/rc-collapse"><img style="position: absolute; top: 0; right: 0; border: 0;"
-                            src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
-                            alt="Fork me on GitHub"
-                            data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+<a href="http://github.com/react-component/rc-collapse">
+  <img style="position: absolute; top: 0; right: 0; border: 0;"
+       src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+       alt="Fork me on GitHub"
+       data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+</a>
 </body>
 
 </html>
