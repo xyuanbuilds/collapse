@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>simple.js - example - rc-collapse@1.4.3</title>
+  <title>simple.js - example - rc-collapse@1.4.4</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -257,7 +257,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
 <div class="container">
   <div class="header">
-    <h1>rc-collapse@1.4.3</h1>
+    <h1>rc-collapse@1.4.4</h1>
 
     <p>rc-collapse ui component for react</p>
   </div>
@@ -273,13 +273,13 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
 <span class="hljs-keyword">var</span> ReactDOM = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-dom'</span>);
 
-<span class="hljs-keyword">var</span> text = <span class="hljs-string">`
+<span class="hljs-keyword">var</span> text = `
   A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`</span>;
+  Known <span class="hljs-keyword">for</span> its loyalty and faithfulness,
+  it can be found as a welcome guest <span class="hljs-keyword">in</span> many households across the world.
+`;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">random</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">random</span><span class="hljs-params">()</span> </span>{
   <span class="hljs-keyword">return</span> <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>;
 }
 
@@ -299,38 +299,38 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
         <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">{`This</span> <span class="hljs-attribute">is</span> <span class="hljs-attribute">panel</span> <span class="hljs-attribute">header</span> ${<span class="hljs-attribute">key</span>}`} <span class="hljs-attribute">key</span>=<span class="hljs-value">{key}</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{text.repeat(this.state.time)}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
-      )</span>;
+      );
     }
     items.push(
-      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">{`This</span> <span class="hljs-attribute">is</span> <span class="hljs-attribute">panel</span> <span class="hljs-attribute">header</span> <span class="hljs-attribute">4</span>`} <span class="hljs-attribute">key</span>=<span class="hljs-value">"4"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">{`This</span> <span class="hljs-attribute">is</span> <span class="hljs-attribute">panel</span> <span class="hljs-attribute">header</span> <span class="hljs-attribute">4</span>`} <span class="hljs-attribute">key</span>=<span class="hljs-value">"4"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">Collapse</span> <span class="hljs-attribute">defaultActiveKey</span>=<span class="hljs-value">"1"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">{`This</span> <span class="hljs-attribute">is</span> <span class="hljs-attribute">panel</span> <span class="hljs-attribute">nest</span> <span class="hljs-attribute">panel</span>`} <span class="hljs-attribute">key</span>=<span class="hljs-value">"1"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>{text}<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-title">Collapse</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
-    )</span>;
+    );
 
-    <span class="hljs-keyword">return</span> items;
+    return items;
   },
 
   toggle() {
-    <span class="hljs-keyword">this</span>.setState({ accordion: !<span class="hljs-keyword">this</span>.state.accordion });
+    this.setState({ accordion: !this.state.accordion });
   },
 
   reRender() {
-    <span class="hljs-keyword">this</span>.setState({ time: random() });
+    this.setState({ time: random() });
   },
 
   setActivityKey() {
-    <span class="hljs-keyword">this</span>.setState({ activeKey: [<span class="hljs-string">'2'</span>] });
+    this.setState({ activeKey: ['2'] });
   },
 
   render() {
-    <span class="hljs-keyword">var</span> accordion = <span class="hljs-keyword">this</span>.state.accordion;
-    <span class="hljs-keyword">var</span> btn = accordion ? <span class="hljs-string">'accordion'</span> : <span class="hljs-string">'collapse'</span>;
-    <span class="hljs-keyword">var</span> activeKey = <span class="hljs-keyword">this</span>.state.activeKey;
-    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{margin:</span> <span class="hljs-attribute">20</span>, <span class="hljs-attribute">width:</span> <span class="hljs-attribute">400</span>}}&gt;</span>
+    var accordion = this.state.accordion;
+    var btn = accordion ? 'accordion' : 'collapse';
+    var activeKey = this.state.activeKey;
+    return <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{{margin:</span> <span class="hljs-attribute">20</span>, <span class="hljs-attribute">width:</span> <span class="hljs-attribute">400</span>}}&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.reRender}</span>&gt;</span>reRender<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.toggle}</span>&gt;</span>{btn}<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.setActivityKey}</span>&gt;</span>active header 2<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span>
