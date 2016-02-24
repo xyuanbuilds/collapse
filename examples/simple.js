@@ -21,7 +21,7 @@ webpackJsonp([0,1],[
 	var text = '\n  A dog is a type of domesticated animal.\n  Known for its loyalty and faithfulness,\n  it can be found as a welcome guest in many households across the world.\n';
 	
 	function random() {
-	  return parseInt(Math.random() * 10) + 1;
+	  return parseInt(Math.random() * 10, 10) + 1;
 	}
 	
 	var Test = React.createClass({
@@ -69,16 +69,22 @@ webpackJsonp([0,1],[
 	    return items;
 	  },
 	
-	  toggle: function toggle() {
-	    this.setState({ accordion: !this.state.accordion });
+	  setActivityKey: function setActivityKey() {
+	    this.setState({
+	      activeKey: ['2']
+	    });
 	  },
 	
 	  reRender: function reRender() {
-	    this.setState({ time: random() });
+	    this.setState({
+	      time: random()
+	    });
 	  },
 	
-	  setActivityKey: function setActivityKey() {
-	    this.setState({ activeKey: ['2'] });
+	  toggle: function toggle() {
+	    this.setState({
+	      accordion: !this.state.accordion
+	    });
 	  },
 	
 	  render: function render() {
@@ -232,17 +238,18 @@ webpackJsonp([0,1],[
 	var _openAnimation2 = _interopRequireDefault(_openAnimation);
 	
 	var Collapse = (0, _react.createClass)({
-	  statics: {
-	    Panel: _Panel2['default']
-	  },
-	
 	  propTypes: {
+	    children: _react.PropTypes.any,
 	    prefixCls: _react.PropTypes.string,
 	    activeKey: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.arrayOf(_react.PropTypes.string)]),
 	    defaultActiveKey: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.arrayOf(_react.PropTypes.string)]),
 	    openAnimation: _react.PropTypes.object,
 	    onChange: _react.PropTypes.func,
 	    accordion: _react.PropTypes.bool
+	  },
+	
+	  statics: {
+	    Panel: _Panel2['default']
 	  },
 	
 	  getDefaultProps: function getDefaultProps() {
@@ -278,11 +285,11 @@ webpackJsonp([0,1],[
 	    }
 	  },
 	
-	  handleClickItem: function handleClickItem(key) {
+	  onClickItem: function onClickItem(key) {
 	    var _this = this;
 	
 	    return function () {
-	      var activeKey = _this._getActivityKey();
+	      var activeKey = _this.getActivityKey();
 	      if (_this.props.accordion) {
 	        _this.setState({
 	          activeKey: key === activeKey ? null : key
@@ -303,7 +310,7 @@ webpackJsonp([0,1],[
 	    };
 	  },
 	
-	  _getActivityKey: function _getActivityKey() {
+	  getActivityKey: function getActivityKey() {
 	    var activeKey = this.state.activeKey;
 	    var accordion = this.props.accordion;
 	
@@ -320,7 +327,7 @@ webpackJsonp([0,1],[
 	  getItems: function getItems() {
 	    var _this2 = this;
 	
-	    var activeKey = this._getActivityKey();
+	    var activeKey = this.getActivityKey();
 	    var _props2 = this.props;
 	    var prefixCls = _props2.prefixCls;
 	    var accordion = _props2.accordion;
@@ -343,7 +350,7 @@ webpackJsonp([0,1],[
 	        prefixCls: prefixCls,
 	        openAnimation: _this2.props.openAnimation,
 	        children: child.props.children,
-	        onItemClick: _this2.handleClickItem(key).bind(_this2)
+	        onItemClick: _this2.onClickItem(key).bind(_this2)
 	      };
 	
 	      return _react2['default'].createElement(_Panel2['default'], props);
@@ -1378,7 +1385,7 @@ webpackJsonp([0,1],[
 	 * will remain to ensure logic does not differ in production.
 	 */
 	
-	var invariant = function (condition, format, a, b, c, d, e, f) {
+	function invariant(condition, format, a, b, c, d, e, f) {
 	  if (process.env.NODE_ENV !== 'production') {
 	    if (format === undefined) {
 	      throw new Error('invariant requires an error message argument');
@@ -1392,15 +1399,16 @@ webpackJsonp([0,1],[
 	    } else {
 	      var args = [a, b, c, d, e, f];
 	      var argIndex = 0;
-	      error = new Error('Invariant Violation: ' + format.replace(/%s/g, function () {
+	      error = new Error(format.replace(/%s/g, function () {
 	        return args[argIndex++];
 	      }));
+	      error.name = 'Invariant Violation';
 	    }
 	
 	    error.framesToPop = 1; // we don't care about invariant's own frame
 	    throw error;
 	  }
-	};
+	}
 	
 	module.exports = invariant;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
@@ -9619,6 +9627,7 @@ webpackJsonp([0,1],[
 	 */
 	var EventInterface = {
 	  type: null,
+	  target: null,
 	  // currentTarget is set when dispatching; no use in copying it here
 	  currentTarget: emptyFunction.thatReturnsNull,
 	  eventPhase: null,
@@ -9652,8 +9661,6 @@ webpackJsonp([0,1],[
 	  this.dispatchConfig = dispatchConfig;
 	  this.dispatchMarker = dispatchMarker;
 	  this.nativeEvent = nativeEvent;
-	  this.target = nativeEventTarget;
-	  this.currentTarget = nativeEventTarget;
 	
 	  var Interface = this.constructor.Interface;
 	  for (var propName in Interface) {
@@ -9664,7 +9671,11 @@ webpackJsonp([0,1],[
 	    if (normalize) {
 	      this[propName] = normalize(nativeEvent);
 	    } else {
-	      this[propName] = nativeEvent[propName];
+	      if (propName === 'target') {
+	        this.target = nativeEventTarget;
+	      } else {
+	        this[propName] = nativeEvent[propName];
+	      }
 	    }
 	  }
 	
@@ -10827,8 +10838,8 @@ webpackJsonp([0,1],[
 	     */
 	    // autoCapitalize and autoCorrect are supported in Mobile Safari for
 	    // keyboard hints.
-	    autoCapitalize: null,
-	    autoCorrect: null,
+	    autoCapitalize: MUST_USE_ATTRIBUTE,
+	    autoCorrect: MUST_USE_ATTRIBUTE,
 	    // autoSave allows WebKit/Blink to persist values of input fields on page reloads
 	    autoSave: null,
 	    // color is for Safari mask-icon link
@@ -10859,9 +10870,7 @@ webpackJsonp([0,1],[
 	    httpEquiv: 'http-equiv'
 	  },
 	  DOMPropertyNames: {
-	    autoCapitalize: 'autocapitalize',
 	    autoComplete: 'autocomplete',
-	    autoCorrect: 'autocorrect',
 	    autoFocus: 'autofocus',
 	    autoPlay: 'autoplay',
 	    autoSave: 'autosave',
@@ -13515,7 +13524,10 @@ webpackJsonp([0,1],[
 	      }
 	    });
 	
-	    nativeProps.children = content;
+	    if (content) {
+	      nativeProps.children = content;
+	    }
+	
 	    return nativeProps;
 	  }
 	
@@ -13940,7 +13952,7 @@ webpackJsonp([0,1],[
 	    var value = LinkedValueUtils.getValue(props);
 	
 	    if (value != null) {
-	      updateOptions(this, props, value);
+	      updateOptions(this, Boolean(props.multiple), value);
 	    }
 	  }
 	}
@@ -16975,11 +16987,14 @@ webpackJsonp([0,1],[
 	 * @typechecks
 	 */
 	
+	/* eslint-disable fb-www/typeof-undefined */
+	
 	/**
 	 * Same as document.activeElement but wraps in a try-catch block. In IE it is
 	 * not safe to call document.activeElement if there is nothing focused.
 	 *
-	 * The activeElement will be null only if the document or document body is not yet defined.
+	 * The activeElement will be null only if the document or document body is not
+	 * yet defined.
 	 */
 	'use strict';
 	
@@ -16987,7 +17002,6 @@ webpackJsonp([0,1],[
 	  if (typeof document === 'undefined') {
 	    return null;
 	  }
-	
 	  try {
 	    return document.activeElement || document.body;
 	  } catch (e) {
@@ -18727,7 +18741,9 @@ webpackJsonp([0,1],[
 	  'setValueForProperty': 'update attribute',
 	  'setValueForAttribute': 'update attribute',
 	  'deleteValueForProperty': 'remove attribute',
-	  'dangerouslyReplaceNodeWithMarkupByID': 'replace'
+	  'setValueForStyles': 'update styles',
+	  'replaceNodeWithMarkup': 'replace',
+	  'updateTextContent': 'set textContent'
 	};
 	
 	function getTotalTime(measurements) {
@@ -18919,18 +18935,23 @@ webpackJsonp([0,1],[
 	'use strict';
 	
 	var performance = __webpack_require__(151);
-	var curPerformance = performance;
+	
+	var performanceNow;
 	
 	/**
 	 * Detect if we can use `window.performance.now()` and gracefully fallback to
 	 * `Date.now()` if it doesn't exist. We need to support Firefox < 15 for now
 	 * because of Facebook's testing infrastructure.
 	 */
-	if (!curPerformance || !curPerformance.now) {
-	  curPerformance = Date;
+	if (performance.now) {
+	  performanceNow = function () {
+	    return performance.now();
+	  };
+	} else {
+	  performanceNow = function () {
+	    return Date.now();
+	  };
 	}
-	
-	var performanceNow = curPerformance.now.bind(curPerformance);
 	
 	module.exports = performanceNow;
 
@@ -18979,7 +19000,7 @@ webpackJsonp([0,1],[
 	
 	'use strict';
 	
-	module.exports = '0.14.3';
+	module.exports = '0.14.7';
 
 /***/ },
 /* 153 */
@@ -19969,6 +19990,7 @@ webpackJsonp([0,1],[
 	
 	var CollapsePanel = (0, _react.createClass)({
 	  propTypes: {
+	    children: _react.PropTypes.any,
 	    openAnimation: _react.PropTypes.object,
 	    prefixCls: _react.PropTypes.string,
 	    header: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number, _react.PropTypes.node]),
@@ -19976,15 +19998,15 @@ webpackJsonp([0,1],[
 	    onItemClick: _react.PropTypes.func
 	  },
 	
-	  getInitialState: function getInitialState() {
-	    return { isActive: this.props.isActive };
-	  },
-	
 	  getDefaultProps: function getDefaultProps() {
 	    return {
 	      isActive: false,
 	      onItemClick: function onItemClick() {}
 	    };
+	  },
+	
+	  getInitialState: function getInitialState() {
+	    return { isActive: this.props.isActive };
 	  },
 	
 	  handleItemClick: function handleItemClick() {
@@ -20042,7 +20064,7 @@ webpackJsonp([0,1],[
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  Copyright (c) 2015 Jed Watson.
+	  Copyright (c) 2016 Jed Watson.
 	  Licensed under the MIT License (MIT), see
 	  http://jedwatson.github.io/classnames
 	*/
@@ -20054,7 +20076,7 @@ webpackJsonp([0,1],[
 		var hasOwn = {}.hasOwnProperty;
 	
 		function classNames () {
-			var classes = '';
+			var classes = [];
 	
 			for (var i = 0; i < arguments.length; i++) {
 				var arg = arguments[i];
@@ -20063,19 +20085,19 @@ webpackJsonp([0,1],[
 				var argType = typeof arg;
 	
 				if (argType === 'string' || argType === 'number') {
-					classes += ' ' + arg;
+					classes.push(arg);
 				} else if (Array.isArray(arg)) {
-					classes += ' ' + classNames.apply(null, arg);
+					classes.push(classNames.apply(null, arg));
 				} else if (argType === 'object') {
 					for (var key in arg) {
 						if (hasOwn.call(arg, key) && arg[key]) {
-							classes += ' ' + key;
+							classes.push(key);
 						}
 					}
 				}
 			}
 	
-			return classes.substr(1);
+			return classes.join(' ');
 		}
 	
 		if (typeof module !== 'undefined' && module.exports) {
@@ -20203,13 +20225,19 @@ webpackJsonp([0,1],[
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
 	    var _this2 = this;
 	
+	    this.nextProps = nextProps;
 	    var nextChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(nextProps));
 	    var props = this.props;
+	    // exclusive needs immediate response
+	    if (props.exclusive) {
+	      Object.keys(this.currentlyAnimatingKeys).forEach(function (key) {
+	        _this2.stop(key);
+	      });
+	    }
 	    var showProp = props.showProp;
 	    var currentlyAnimatingKeys = this.currentlyAnimatingKeys;
 	    // last props children if exclusive
-	    // exclusive needs immediate response
-	    var currentChildren = this.state.children;
+	    var currentChildren = props.exclusive ? (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props)) : this.state.children;
 	    // in case destroy in showProp mode
 	    var newChildren = [];
 	    if (showProp) {
@@ -20282,15 +20310,7 @@ webpackJsonp([0,1],[
 	    });
 	  },
 	
-	  componentDidUpdate: function componentDidUpdate(prevProps) {
-	    var _this3 = this;
-	
-	    // exclusive needs immediate response
-	    if (this.props.exclusive && this.props !== prevProps) {
-	      Object.keys(this.currentlyAnimatingKeys).forEach(function (key) {
-	        _this3.stop(key);
-	      });
-	    }
+	  componentDidUpdate: function componentDidUpdate() {
 	    if (this.isMounted()) {
 	      var keysToEnter = this.keysToEnter;
 	      this.keysToEnter = [];
@@ -20319,6 +20339,10 @@ webpackJsonp([0,1],[
 	  handleDoneAdding: function handleDoneAdding(key, type) {
 	    var props = this.props;
 	    delete this.currentlyAnimatingKeys[key];
+	    // if update on exclusive mode, skip check
+	    if (props.exclusive && props !== this.nextProps) {
+	      return;
+	    }
 	    var currentChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props));
 	    if (!this.isValidChildByKey(currentChildren, key)) {
 	      // exclusive will not need this
@@ -20349,6 +20373,10 @@ webpackJsonp([0,1],[
 	  handleDoneLeaving: function handleDoneLeaving(key) {
 	    var props = this.props;
 	    delete this.currentlyAnimatingKeys[key];
+	    // if update on exclusive mode, skip check
+	    if (props.exclusive && props !== this.nextProps) {
+	      return;
+	    }
 	    var currentChildren = (0, _ChildrenUtils.toArrayChildren)(getChildrenFromProps(props));
 	    // in case state change is too fast
 	    if (this.isValidChildByKey(currentChildren, key)) {
@@ -20384,10 +20412,14 @@ webpackJsonp([0,1],[
 	
 	  render: function render() {
 	    var props = this.props;
+	    this.nextProps = props;
 	    var stateChildren = this.state.children;
 	    var children = null;
 	    if (stateChildren) {
 	      children = stateChildren.map(function (child) {
+	        if (child === null) {
+	          return child;
+	        }
 	        if (!child.key) {
 	          throw new Error('must set key for <rc-animate> children');
 	        }
