@@ -334,7 +334,7 @@ webpackJsonp([0,1],[
 	
 	    return _react.Children.map(this.props.children, function (child, index) {
 	      // If there is no key provide, use the panel order as default key
-	      var key = child.key || index;
+	      var key = child.key || String(index);
 	      var header = child.props.header;
 	      var isActive = false;
 	      if (accordion) {
