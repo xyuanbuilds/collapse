@@ -3,6 +3,10 @@
   border-radius: 3px;
   border: 1px solid #d9d9d9;
 }
+.rc-collapse-anim-active {
+  -webkit-transition: height 0.3s ease-out;
+          transition: height 0.3s ease-out;
+}
 .rc-collapse > .rc-collapse-item {
   border-top: 1px solid #d9d9d9;
 }
@@ -30,7 +34,6 @@
   margin-right: 8px;
 }
 .rc-collapse-content {
-  display: none;
   overflow: hidden;
   color: #666;
   padding: 0 16px;
@@ -40,8 +43,8 @@
   margin-top: 16px;
   margin-bottom: 16px;
 }
-.rc-collapse-content-active {
-  display: block;
+.rc-collapse-content-inactive {
+  display: none;
 }
 .rc-collapse-item:last-child > .rc-collapse-content {
   border-radius: 0 0 3px 3px;
