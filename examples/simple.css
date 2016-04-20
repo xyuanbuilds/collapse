@@ -5,7 +5,7 @@
 }
 .rc-collapse-anim-active {
   -webkit-transition: height 0.3s ease-out;
-          transition: height 0.3s ease-out;
+  transition: height 0.3s ease-out;
 }
 .rc-collapse > .rc-collapse-item {
   border-top: 1px solid #d9d9d9;
