@@ -3983,9 +3983,6 @@ webpackJsonp([0,1],[
 	      onItemClick: function onItemClick() {}
 	    };
 	  },
-	  shouldComponentUpdate: function shouldComponentUpdate(nextProps) {
-	    return this.props.isActive || nextProps.isActive;
-	  },
 	  handleItemClick: function handleItemClick() {
 	    this.props.onItemClick();
 	  },
@@ -4061,6 +4058,9 @@ webpackJsonp([0,1],[
 	    prefixCls: _react.PropTypes.string,
 	    isActive: _react.PropTypes.bool,
 	    children: _react.PropTypes.any
+	  },
+	  shouldComponentUpdate: function shouldComponentUpdate(nextProps) {
+	    return this.props.isActive || nextProps.isActive;
 	  },
 	  render: function render() {
 	    var _classnames;
