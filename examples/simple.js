@@ -21661,7 +21661,10 @@ webpackJsonp([0,1],[
 	      }
 	    },
 	    active: function active() {
-	      node.style.height = (show ? height : 0) + 'px';
+	      // use setTimeout for lost animation in Firefox
+	      setTimeout(function () {
+	        node.style.height = (show ? height : 0) + 'px';
+	      });
 	    },
 	    end: function end() {
 	      node.style.height = '';
