@@ -21216,20 +21216,20 @@ webpackJsonp([0,1],[
 	
 	  _Event2["default"].addEndEventListener(node, node.rcEndListener);
 	
-	  nodeClasses.add(className);
-	
 	  if (start) {
 	    start();
 	  }
+	  nodeClasses.add(className);
 	
 	  node.rcAnimTimeout = setTimeout(function () {
 	    node.rcAnimTimeout = null;
 	    nodeClasses.add(activeClassName);
 	    if (active) {
-	      active();
+	      setTimeout(active, 0);
 	    }
 	    fixBrowserByTimeout(node);
-	  }, 0);
+	    // 30ms for firefox
+	  }, 30);
 	
 	  return {
 	    stop: function stop() {
@@ -21661,10 +21661,7 @@ webpackJsonp([0,1],[
 	      }
 	    },
 	    active: function active() {
-	      // use setTimeout for lost animation in Firefox
-	      setTimeout(function () {
-	        node.style.height = (show ? height : 0) + 'px';
-	      });
+	      node.style.height = (show ? height : 0) + 'px';
 	    },
 	    end: function end() {
 	      node.style.height = '';
