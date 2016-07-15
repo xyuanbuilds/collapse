@@ -363,7 +363,7 @@ webpackJsonp([0,1],[
 	        onItemClick: _this2.onClickItem(key).bind(_this2)
 	      };
 	
-	      return _react2["default"].createElement(_Panel2["default"], props);
+	      return _react2["default"].cloneElement(child, props);
 	    });
 	  },
 	  setActiveKey: function setActiveKey(activeKey) {
