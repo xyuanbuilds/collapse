@@ -3955,7 +3955,11 @@ webpackJsonp([0,1],[
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _PanelContent = __webpack_require__(39);
+	var _classnames = __webpack_require__(39);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _PanelContent = __webpack_require__(40);
 	
 	var _PanelContent2 = _interopRequireDefault(_PanelContent);
 	
@@ -3964,6 +3968,8 @@ webpackJsonp([0,1],[
 	var _rcAnimate2 = _interopRequireDefault(_rcAnimate);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
 	var CollapsePanel = _react2["default"].createClass({
 	  displayName: 'CollapsePanel',
@@ -3987,6 +3993,8 @@ webpackJsonp([0,1],[
 	    this.props.onItemClick();
 	  },
 	  render: function render() {
+	    var _classNames;
+	
 	    var _props = this.props;
 	    var prefixCls = _props.prefixCls;
 	    var header = _props.header;
@@ -3994,9 +4002,10 @@ webpackJsonp([0,1],[
 	    var isActive = _props.isActive;
 	
 	    var headerCls = prefixCls + '-header';
+	    var itemCls = (0, _classnames2["default"])((_classNames = {}, _defineProperty(_classNames, prefixCls + '-item', true), _defineProperty(_classNames, prefixCls + '-item-active', isActive), _classNames));
 	    return _react2["default"].createElement(
 	      'div',
-	      { className: prefixCls + '-item' },
+	      { className: itemCls },
 	      _react2["default"].createElement(
 	        'div',
 	        {
@@ -4031,70 +4040,6 @@ webpackJsonp([0,1],[
 
 /***/ },
 /* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(7);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames2 = __webpack_require__(40);
-	
-	var _classnames3 = _interopRequireDefault(_classnames2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	var PanelContent = _react2["default"].createClass({
-	  displayName: 'PanelContent',
-	
-	  propTypes: {
-	    prefixCls: _react.PropTypes.string,
-	    isActive: _react.PropTypes.bool,
-	    children: _react.PropTypes.any
-	  },
-	  shouldComponentUpdate: function shouldComponentUpdate(nextProps) {
-	    return this.props.isActive || nextProps.isActive;
-	  },
-	  render: function render() {
-	    var _classnames;
-	
-	    this._isActived = this._isActived || this.props.isActive;
-	    if (!this._isActived) {
-	      return null;
-	    }
-	    var _props = this.props;
-	    var prefixCls = _props.prefixCls;
-	    var isActive = _props.isActive;
-	    var children = _props.children;
-	
-	    var contentCls = (0, _classnames3["default"])((_classnames = {}, _defineProperty(_classnames, prefixCls + '-content', true), _defineProperty(_classnames, prefixCls + '-content-active', isActive), _defineProperty(_classnames, prefixCls + '-content-inactive', !isActive), _classnames));
-	    return _react2["default"].createElement(
-	      'div',
-	      {
-	        className: contentCls,
-	        role: 'tabpanel'
-	      },
-	      _react2["default"].createElement(
-	        'div',
-	        { className: prefixCls + '-content-box' },
-	        children
-	      )
-	    );
-	  }
-	});
-	
-	exports["default"] = PanelContent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4146,6 +4091,70 @@ webpackJsonp([0,1],[
 		}
 	}());
 
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(7);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames2 = __webpack_require__(39);
+	
+	var _classnames3 = _interopRequireDefault(_classnames2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var PanelContent = _react2["default"].createClass({
+	  displayName: 'PanelContent',
+	
+	  propTypes: {
+	    prefixCls: _react.PropTypes.string,
+	    isActive: _react.PropTypes.bool,
+	    children: _react.PropTypes.any
+	  },
+	  shouldComponentUpdate: function shouldComponentUpdate(nextProps) {
+	    return this.props.isActive || nextProps.isActive;
+	  },
+	  render: function render() {
+	    var _classnames;
+	
+	    this._isActived = this._isActived || this.props.isActive;
+	    if (!this._isActived) {
+	      return null;
+	    }
+	    var _props = this.props;
+	    var prefixCls = _props.prefixCls;
+	    var isActive = _props.isActive;
+	    var children = _props.children;
+	
+	    var contentCls = (0, _classnames3["default"])((_classnames = {}, _defineProperty(_classnames, prefixCls + '-content', true), _defineProperty(_classnames, prefixCls + '-content-active', isActive), _defineProperty(_classnames, prefixCls + '-content-inactive', !isActive), _classnames));
+	    return _react2["default"].createElement(
+	      'div',
+	      {
+	        className: contentCls,
+	        role: 'tabpanel'
+	      },
+	      _react2["default"].createElement(
+	        'div',
+	        { className: prefixCls + '-content-box' },
+	        children
+	      )
+	    );
+	  }
+	});
+	
+	exports["default"] = PanelContent;
+	module.exports = exports['default'];
 
 /***/ },
 /* 41 */
@@ -21216,20 +21225,20 @@ webpackJsonp([0,1],[
 	
 	  _Event2["default"].addEndEventListener(node, node.rcEndListener);
 	
+	  nodeClasses.add(className);
+	
 	  if (start) {
 	    start();
 	  }
-	  nodeClasses.add(className);
 	
 	  node.rcAnimTimeout = setTimeout(function () {
 	    node.rcAnimTimeout = null;
 	    nodeClasses.add(activeClassName);
 	    if (active) {
-	      setTimeout(active, 0);
+	      active();
 	    }
 	    fixBrowserByTimeout(node);
-	    // 30ms for firefox
-	  }, 30);
+	  }, 0);
 	
 	  return {
 	    stop: function stop() {
