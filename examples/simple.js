@@ -280,7 +280,7 @@ webpackJsonp([0,1],[
 	    onChange: _react.PropTypes.func,
 	    accordion: _react.PropTypes.bool,
 	    className: _react.PropTypes.string,
-	    style: _react.PropTypes.string
+	    style: _react.PropTypes.object
 	  },
 	
 	  statics: {
