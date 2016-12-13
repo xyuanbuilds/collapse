@@ -4355,12 +4355,14 @@ webpackJsonp([0,1],[
 	    openAnimation: _react.PropTypes.object,
 	    prefixCls: _react.PropTypes.string,
 	    header: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number, _react.PropTypes.node]),
+	    showArrow: _react.PropTypes.bool,
 	    isActive: _react.PropTypes.bool,
 	    onItemClick: _react.PropTypes.func
 	  },
 	
 	  getDefaultProps: function getDefaultProps() {
 	    return {
+	      showArrow: true,
 	      isActive: false,
 	      onItemClick: function onItemClick() {}
 	    };
@@ -4376,7 +4378,8 @@ webpackJsonp([0,1],[
 	        prefixCls = _props.prefixCls,
 	        header = _props.header,
 	        children = _props.children,
-	        isActive = _props.isActive;
+	        isActive = _props.isActive,
+	        showArrow = _props.showArrow;
 	
 	    var headerCls = prefixCls + '-header';
 	    var itemCls = (0, _classnames2.default)((_classNames = {}, _defineProperty(_classNames, prefixCls + '-item', true), _defineProperty(_classNames, prefixCls + '-item-active', isActive), _defineProperty(_classNames, className, className), _classNames));
@@ -4391,7 +4394,7 @@ webpackJsonp([0,1],[
 	          role: 'tab',
 	          'aria-expanded': isActive
 	        },
-	        _react2.default.createElement('i', { className: 'arrow' }),
+	        showArrow && _react2.default.createElement('i', { className: 'arrow' }),
 	        header
 	      ),
 	      _react2.default.createElement(
