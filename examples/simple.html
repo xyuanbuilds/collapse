@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>simple.js - example - rc-collapse@1.7.0</title>
+  <title>simple.js - example - rc-collapse@1.7.1</title>
   <meta name="viewport"
         content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta charset="utf-8"/>
@@ -263,7 +263,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 <body>
   <div class="container">
     <div class="header">
-      <h1>rc-collapse@1.7.0</h1>
+      <h1>rc-collapse@1.7.1</h1>
 
       <p>rc-collapse ui component for react</p>
     </div>
@@ -285,20 +285,26 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
   <span class="hljs-keyword">return</span> <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>, <span class="hljs-number">10</span>) + <span class="hljs-number">1</span>;
 }
 
-<span class="hljs-keyword">const</span> Test = React.createClass({
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+  constructor(props) {
+    <span class="hljs-keyword">super</span>(props);
+    <span class="hljs-keyword">this</span>.state = <span class="hljs-keyword">this</span>.getInitialState();
+    [<span class="hljs-string">'onChange'</span>, <span class="hljs-string">'setActivityKey'</span>, <span class="hljs-string">'reRender'</span>, <span class="hljs-string">'toggle'</span>].map(fn =&gt; <span class="hljs-keyword">this</span>[fn] = <span class="hljs-keyword">this</span>[fn].bind(<span class="hljs-keyword">this</span>));
+  }
+
   getInitialState() {
     <span class="hljs-keyword">return</span> {
       time: random(),
       accordion: <span class="hljs-literal">false</span>,
       activeKey: [<span class="hljs-string">'4'</span>],
     };
-  },
+  }
 
   onChange(activeKey) {
     <span class="hljs-keyword">this</span>.setState({
       activeKey,
     });
-  },
+  }
 
   getItems() {
     <span class="hljs-keyword">const</span> items = [];
@@ -321,25 +327,25 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
     )</span>;
 
     <span class="hljs-keyword">return</span> items;
-  },
+  }
 
   setActivityKey() {
     <span class="hljs-keyword">this</span>.setState({
       activeKey: [<span class="hljs-string">'2'</span>],
     });
-  },
+  }
 
   reRender() {
     <span class="hljs-keyword">this</span>.setState({
       time: random(),
     });
-  },
+  }
 
   toggle() {
     <span class="hljs-keyword">this</span>.setState({
       accordion: !<span class="hljs-keyword">this</span>.state.accordion,
     });
-  },
+  }
 
   render() {
     <span class="hljs-keyword">const</span> accordion = <span class="hljs-keyword">this</span>.state.accordion;
@@ -359,8 +365,8 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
         {this.getItems()}
       <span class="hljs-tag">&lt;/<span class="hljs-title">Collapse</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>)</span>;
-  },
-});
+  }
+}
 
 ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Test</span>/&gt;</span>, document.getElementById('__react-content'));
 </span></code></pre></div>
