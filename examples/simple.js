@@ -384,6 +384,7 @@ webpackJsonp([0,1],[
 	      // If there is no key provide, use the panel order as default key
 	      var key = child.key || String(index);
 	      var header = child.props.header;
+	      var headerClass = child.props.headerClass;
 	      var isActive = false;
 	      if (accordion) {
 	        isActive = activeKey[0] === key;
@@ -394,6 +395,7 @@ webpackJsonp([0,1],[
 	      var props = {
 	        key: key,
 	        header: header,
+	        headerClass: headerClass,
 	        isActive: isActive,
 	        prefixCls: prefixCls,
 	        destroyInactivePanel: destroyInactivePanel,
@@ -4783,12 +4785,13 @@ webpackJsonp([0,1],[
 	        style = _props.style,
 	        prefixCls = _props.prefixCls,
 	        header = _props.header,
+	        headerClass = _props.headerClass,
 	        children = _props.children,
 	        isActive = _props.isActive,
 	        showArrow = _props.showArrow,
 	        destroyInactivePanel = _props.destroyInactivePanel;
 	
-	    var headerCls = prefixCls + '-header';
+	    var headerCls = prefixCls + '-header ' + headerClass;
 	    var itemCls = (0, _classnames2.default)((_classNames = {}, _defineProperty(_classNames, prefixCls + '-item', true), _defineProperty(_classNames, prefixCls + '-item-active', isActive), _classNames), className);
 	    return _react2.default.createElement(
 	      'div',
@@ -4834,6 +4837,7 @@ webpackJsonp([0,1],[
 	  openAnimation: _propTypes2.default.object,
 	  prefixCls: _propTypes2.default.string,
 	  header: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number, _propTypes2.default.node]),
+	  headerClass: _propTypes2.default.string,
 	  showArrow: _propTypes2.default.bool,
 	  isActive: _propTypes2.default.bool,
 	  onItemClick: _propTypes2.default.func,
@@ -4845,7 +4849,9 @@ webpackJsonp([0,1],[
 	  showArrow: true,
 	  isActive: false,
 	  destroyInactivePanel: false,
-	  onItemClick: function onItemClick() {}
+	  onItemClick: function onItemClick() {},
+	
+	  headerClass: ''
 	};
 	
 	exports.default = CollapsePanel;

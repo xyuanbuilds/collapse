@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
-  <title>rc-collapse@1.7.1 - rc-collapse ui component for react</title>
+  <title>rc-collapse@1.7.2 - rc-collapse ui component for react</title>
   <style>
     @font-face {
       font-family: octicons-anchor;
@@ -737,7 +737,7 @@
 
 <body>
 <div class="header">
-  <h1>rc-collapse@1.7.1</h1>
+  <h1>rc-collapse@1.7.2</h1>
 </div>
 <div class="examples">
   <h3>EXAMPLES</h3>
@@ -769,9 +769,11 @@ npm start</code></pre></div><h2>Example<a id="user-content-example" name="exampl
 <span class="hljs-keyword">var</span> Panel = Collapse.Panel;
 <span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
 <span class="hljs-keyword">var</span> ReactDOM = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react-dom'</span>);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'rc-collapse/assets/index.css'</span>);
+
 <span class="hljs-keyword">var</span> collapse = (
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Collapse</span> <span class="hljs-attribute">accordion</span>=<span class="hljs-value">{true}</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">"hello"</span>&gt;</span>this is panel content<span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">"hello"</span> <span class="hljs-attribute">headerClass</span>=<span class="hljs-value">"my-header-class"</span>&gt;</span>this is panel content<span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">Panel</span> <span class="hljs-attribute">header</span>=<span class="hljs-value">"title2"</span>&gt;</span>this is panel content2 or other<span class="hljs-tag">&lt;/<span class="hljs-title">Panel</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">Collapse</span>&gt;</span>
 )</span>;
@@ -790,6 +792,12 @@ ReactDOM.render(collapse, container);</code></pre></div><h2>API<a id="user-conte
           <td>String|Array<String></td>
           <th>The first panel key</th>
           <td>current active Panel key</td>
+      </tr>
+      <tr>
+        <td>className</td>
+        <td>String or object</td>
+        <th></th>
+        <td>custom className to apply</td>
       </tr>
       <tr>
           <td>defaultActiveKey</td>
@@ -837,6 +845,12 @@ ReactDOM.render(collapse, container);</code></pre></div><h2>API<a id="user-conte
           <td>String or node</td>
           <th></th>
           <td>header content of Panel</td>
+      </tr>
+      <tr>
+          <td>headerClass</td>
+          <td>String</td>
+          <th>&#39; &#39;</th>
+          <td>custom className to apply to header</td>
       </tr>
       <tr>
           <td>showArrow</td>
