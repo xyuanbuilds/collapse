@@ -4778,7 +4778,7 @@ webpackJsonp([0,1],[
 	  };
 	
 	  CollapsePanel.prototype.render = function render() {
-	    var _classNames;
+	    var _classNames2;
 	
 	    var _props = this.props,
 	        className = _props.className,
@@ -4791,8 +4791,8 @@ webpackJsonp([0,1],[
 	        showArrow = _props.showArrow,
 	        destroyInactivePanel = _props.destroyInactivePanel;
 	
-	    var headerCls = prefixCls + '-header ' + headerClass;
-	    var itemCls = (0, _classnames2.default)((_classNames = {}, _defineProperty(_classNames, prefixCls + '-item', true), _defineProperty(_classNames, prefixCls + '-item-active', isActive), _classNames), className);
+	    var headerCls = (0, _classnames2.default)(prefixCls + '-header', _defineProperty({}, headerClass, headerClass));
+	    var itemCls = (0, _classnames2.default)((_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-item', true), _defineProperty(_classNames2, prefixCls + '-item-active', isActive), _classNames2), className);
 	    return _react2.default.createElement(
 	      'div',
 	      { className: itemCls, style: style },
