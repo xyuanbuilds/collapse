@@ -10399,7 +10399,7 @@ var Test = function (_React$Component) {
           { defaultActiveKey: '1' },
           __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_2_rc_collapse__["Panel"],
-            { header: 'This is panel nest panel', key: '1' },
+            { header: 'This is panel nest panel', key: '1', id: 'header-test' },
             __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
               'p',
               null,
@@ -10736,6 +10736,7 @@ var CollapsePanel = function (_Component) {
 
       var _props = this.props,
           className = _props.className,
+          id = _props.id,
           style = _props.style,
           prefixCls = _props.prefixCls,
           header = _props.header,
@@ -10750,7 +10751,7 @@ var CollapsePanel = function (_Component) {
       var itemCls = __WEBPACK_IMPORTED_MODULE_2_classnames___default()((_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-item', true), _defineProperty(_classNames2, prefixCls + '-item-active', isActive), _defineProperty(_classNames2, prefixCls + '-item-disabled', disabled), _classNames2), className);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { className: itemCls, style: style },
+        { className: itemCls, style: style, id: id },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           {
@@ -10789,6 +10790,7 @@ var CollapsePanel = function (_Component) {
 
 CollapsePanel.propTypes = {
   className: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string, __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object]),
+  id: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
   children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.any,
   openAnimation: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
   prefixCls: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
