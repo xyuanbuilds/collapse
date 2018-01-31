@@ -2479,7 +2479,8 @@ var CollapsePanel = function (_Component) {
           isActive = _props.isActive,
           showArrow = _props.showArrow,
           destroyInactivePanel = _props.destroyInactivePanel,
-          disabled = _props.disabled;
+          disabled = _props.disabled,
+          forceRender = _props.forceRender;
 
       var headerCls = __WEBPACK_IMPORTED_MODULE_2_classnames___default()(prefixCls + '-header', _defineProperty({}, headerClass, headerClass));
       var itemCls = __WEBPACK_IMPORTED_MODULE_2_classnames___default()((_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-item', true), _defineProperty(_classNames2, prefixCls + '-item-active', isActive), _defineProperty(_classNames2, prefixCls + '-item-disabled', disabled), _classNames2), className);
@@ -2510,7 +2511,8 @@ var CollapsePanel = function (_Component) {
             {
               prefixCls: prefixCls,
               isActive: isActive,
-              destroyInactivePanel: destroyInactivePanel
+              destroyInactivePanel: destroyInactivePanel,
+              forceRender: forceRender
             },
             children
           )
@@ -2535,7 +2537,8 @@ CollapsePanel.propTypes = {
   onItemClick: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
   style: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
   destroyInactivePanel: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
-  disabled: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
+  disabled: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  forceRender: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
 };
 
 CollapsePanel.defaultProps = {
@@ -2544,7 +2547,8 @@ CollapsePanel.defaultProps = {
   destroyInactivePanel: false,
   onItemClick: function onItemClick() {},
 
-  headerClass: ''
+  headerClass: '',
+  forceRender: false
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (CollapsePanel);
@@ -2593,7 +2597,7 @@ var PanelContent = function (_Component) {
     value: function render() {
       var _classnames;
 
-      this._isActived = this._isActived || this.props.isActive;
+      this._isActived = this.props.forceRender || this._isActived || this.props.isActive;
       if (!this._isActived) {
         return null;
       }
@@ -2601,10 +2605,11 @@ var PanelContent = function (_Component) {
           prefixCls = _props.prefixCls,
           isActive = _props.isActive,
           children = _props.children,
-          destroyInactivePanel = _props.destroyInactivePanel;
+          destroyInactivePanel = _props.destroyInactivePanel,
+          forceRender = _props.forceRender;
 
       var contentCls = __WEBPACK_IMPORTED_MODULE_2_classnames___default()((_classnames = {}, _defineProperty(_classnames, prefixCls + '-content', true), _defineProperty(_classnames, prefixCls + '-content-active', isActive), _defineProperty(_classnames, prefixCls + '-content-inactive', !isActive), _classnames));
-      var child = !isActive && destroyInactivePanel ? null : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      var child = !forceRender && !isActive && destroyInactivePanel ? null : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: prefixCls + '-content-box' },
         children
@@ -2627,7 +2632,8 @@ PanelContent.propTypes = {
   prefixCls: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string,
   isActive: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.any,
-  destroyInactivePanel: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
+  destroyInactivePanel: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  forceRender: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (PanelContent);
@@ -4751,6 +4757,8 @@ function noop() {}
 var Animate = function (_React$Component) {
   __WEBPACK_IMPORTED_MODULE_5_babel_runtime_helpers_inherits___default()(Animate, _React$Component);
 
+  // eslint-disable-line
+
   function Animate(props) {
     __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_classCallCheck___default()(this, Animate);
 
@@ -4961,6 +4969,7 @@ var Animate = function (_React$Component) {
   return Animate;
 }(__WEBPACK_IMPORTED_MODULE_6_react___default.a.Component);
 
+Animate.isAnimate = true;
 Animate.propTypes = {
   component: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.any,
   componentProps: __WEBPACK_IMPORTED_MODULE_7_prop_types___default.a.object,
