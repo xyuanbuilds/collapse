@@ -2371,7 +2371,6 @@ var CollapsePanel = function (_Component) {
         _this.props.onItemClick();
       }
     }, _this.handleKeyPress = function (e) {
-      e.preventDefault();
       if (e.key === 'Enter' || e.keyCode === 13 || e.which === 13) {
         _this.handleItemClick();
       }
