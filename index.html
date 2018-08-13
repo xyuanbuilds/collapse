@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
-  <title>rc-collapse@1.9.3 - rc-collapse ui component for react</title>
+  <title>rc-collapse@1.10.0 - rc-collapse ui component for react</title>
   <style>
     @font-face {
       font-family: octicons-anchor;
@@ -737,12 +737,14 @@
 
 <body>
 <div class="header">
-  <h1>rc-collapse@1.9.3</h1>
+  <h1>rc-collapse@1.10.0</h1>
 </div>
 <div class="examples">
   <h3>EXAMPLES</h3>
   <div class="examples-body">
     <ul>
+      
+      <li><a href="examples/custom-icon.html">custom-icon</a></li>
       
       <li><a href="examples/simple.html">simple</a></li>
       
@@ -822,6 +824,12 @@ ReactDOM.render(collapse, container);</code></pre></div><h2>API<a id="user-conte
           <td>Function(key)</td>
           <th>noop</th>
           <td>called when collapse Panel is changed</td>
+      </tr>
+      <tr>
+          <td>expandIcon</td>
+          <td>(props: PanelProps) =&gt; ReactNode</td>
+          <th></th>
+          <td>specific the custom expand icon.</td>
       </tr>
     </tbody>
 </table>

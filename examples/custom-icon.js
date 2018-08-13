@@ -1,14 +1,14 @@
-webpackJsonp([0],{
+webpackJsonp([1],{
 
-/***/ 134:
+/***/ 133:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(69);
+module.exports = __webpack_require__(68);
 
 
 /***/ }),
 
-/***/ 69:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43,11 +43,37 @@ function random() {
   return parseInt(Math.random() * 10, 10) + 1;
 }
 
+var arrowPath = 'M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h-88' + '.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.' + '6 8 8 8h585.1L386.9 854c-5.6 4.9-2.2 14 5.2 14h91.5c1.9 0 3.8-0.7 5.' + '2-2L869 536.2c14.7-12.8 14.7-35.6 0-48.4z';
+
+function expandIcon(_ref) {
+  var isActive = _ref.isActive;
+
+  return __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
+    'i',
+    { style: { marginRight: '.5rem' } },
+    __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
+      'svg',
+      {
+        viewBox: '0 0 1024 1024',
+        width: '1em',
+        height: '1em',
+        fill: 'currentColor',
+        style: {
+          verticalAlign: '-.125em',
+          transition: 'transform .2s',
+          transform: 'rotate(' + (isActive ? 90 : 0) + 'deg)'
+        }
+      },
+      __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement('path', { d: arrowPath, 'p-id': '5827' })
+    )
+  );
+}
+
 var Test = function (_React$Component) {
   _inherits(Test, _React$Component);
 
   function Test() {
-    var _ref;
+    var _ref2;
 
     var _temp, _this, _ret;
 
@@ -57,7 +83,7 @@ var Test = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Test.__proto__ || Object.getPrototypeOf(Test)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Test.__proto__ || Object.getPrototypeOf(Test)).call.apply(_ref2, [this].concat(args))), _this), _this.state = {
       time: random(),
       accordion: false,
       activeKey: ['4']
@@ -69,13 +95,13 @@ var Test = function (_React$Component) {
       _this.setState({
         activeKey: ['2']
       });
-    }, _this.reRender = function () {
-      _this.setState({
-        time: random()
-      });
     }, _this.toggle = function () {
       _this.setState({
         accordion: !_this.state.accordion
+      });
+    }, _this.reRender = function () {
+      _this.setState({
+        time: random()
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -101,7 +127,7 @@ var Test = function (_React$Component) {
         { header: 'This is panel header 4', key: '4' },
         __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_2_rc_collapse___default.a,
-          { defaultActiveKey: '1' },
+          { defaultActiveKey: '1', expandIcon: expandIcon },
           __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_2_rc_collapse__["Panel"],
             { header: 'This is panel nest panel', key: '1', id: 'header-test' },
@@ -172,7 +198,8 @@ var Test = function (_React$Component) {
           {
             accordion: accordion,
             onChange: this.onChange,
-            activeKey: activeKey
+            activeKey: activeKey,
+            expandIcon: expandIcon
           },
           this.getItems()
         )
@@ -187,5 +214,5 @@ __WEBPACK_IMPORTED_MODULE_4_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ })
 
-},[134]);
-//# sourceMappingURL=simple.js.map
+},[133]);
+//# sourceMappingURL=custom-icon.js.map
