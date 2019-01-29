@@ -2215,7 +2215,8 @@ var CollapsePanel = function (_Component) {
           disabled = _props.disabled,
           accordion = _props.accordion,
           forceRender = _props.forceRender,
-          expandIcon = _props.expandIcon;
+          expandIcon = _props.expandIcon,
+          extra = _props.extra;
 
       var headerCls = __WEBPACK_IMPORTED_MODULE_2_classnames___default()(prefixCls + '-header', _defineProperty({}, headerClass, headerClass));
       var itemCls = __WEBPACK_IMPORTED_MODULE_2_classnames___default()((_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-item', true), _defineProperty(_classNames2, prefixCls + '-item-active', isActive), _defineProperty(_classNames2, prefixCls + '-item-disabled', disabled), _classNames2), className);
@@ -2238,7 +2239,12 @@ var CollapsePanel = function (_Component) {
             onKeyPress: this.handleKeyPress
           },
           showArrow && (icon || __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'arrow' })),
-          header
+          header,
+          extra && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: prefixCls + '-extra' },
+            extra
+          )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_4_rc_animate__["a" /* default */],
@@ -2284,6 +2290,7 @@ CollapsePanel.propTypes = {
   accordion: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   forceRender: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   expandIcon: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func,
+  extra: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.node,
   panelKey: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.any
 };
 

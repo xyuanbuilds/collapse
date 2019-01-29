@@ -137,6 +137,20 @@ var Test = function (_React$Component) {
         )
       ));
 
+      items.push(__WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
+        __WEBPACK_IMPORTED_MODULE_2_rc_collapse__["Panel"],
+        { header: 'This is panel header 6', key: '6', extra: __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
+            'span',
+            null,
+            'Extra Node'
+          ) },
+        __WEBPACK_IMPORTED_MODULE_3_react___default.a.createElement(
+          'p',
+          null,
+          'Panel with extra'
+        )
+      ));
+
       return items;
     }
   }, {
