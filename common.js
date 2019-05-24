@@ -2236,7 +2236,7 @@ var CollapsePanel = function (_Component) {
       var headerCls = __WEBPACK_IMPORTED_MODULE_2_classnames___default()(prefixCls + '-header', _defineProperty({}, headerClass, headerClass));
       var itemCls = __WEBPACK_IMPORTED_MODULE_2_classnames___default()((_classNames2 = {}, _defineProperty(_classNames2, prefixCls + '-item', true), _defineProperty(_classNames2, prefixCls + '-item-active', isActive), _defineProperty(_classNames2, prefixCls + '-item-disabled', disabled), _classNames2), className);
 
-      var icon = null;
+      var icon = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'arrow' });
       if (showArrow && typeof expandIcon === 'function') {
         icon = expandIcon(this.props);
       }
@@ -2253,7 +2253,7 @@ var CollapsePanel = function (_Component) {
             'aria-expanded': '' + isActive,
             onKeyPress: this.handleKeyPress
           },
-          showArrow && (icon || __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'arrow' })),
+          showArrow && icon,
           header,
           extra && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
