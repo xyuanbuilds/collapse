@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 129:
+/***/ 130:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(63);
@@ -214,5 +214,5 @@ __WEBPACK_IMPORTED_MODULE_4_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 /***/ })
 
-},[129]);
+},[130]);
 //# sourceMappingURL=custom-icon.js.map
