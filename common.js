@@ -1935,7 +1935,7 @@ function toArray(activeKey) {
     currentActiveKey = currentActiveKey ? [currentActiveKey] : [];
   }
   return currentActiveKey.map(function (key) {
-    return key.toString();
+    return String(key);
   });
 }
 
